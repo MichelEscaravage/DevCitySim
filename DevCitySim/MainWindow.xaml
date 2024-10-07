@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="DevCitySim.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DevCitySim"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:localData="using:DevCitySim.Data.Classes"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <StackPanel>
+            <TextBox x:Name="FilterBox" TextChanged="FilterBox_TextChanged"/>
+            <Button x:Name="myButton" Click="ActivateSoftwareDeveloper">Click Me</Button>
+        </StackPanel>
+        <StackPanel>
+            <ListView x:Name="bewonersListView" IsItemClickEnabled="True" ItemClick="bewonersListView_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="localData:Citizen">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </StackPanel>
+</Window>
