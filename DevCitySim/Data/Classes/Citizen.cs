@@ -13,7 +13,6 @@ namespace DevCitySim.Data.Classes
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Job { get; set; }
-
-        public ObservableCollection<Building> Buildings { get; set; }   
+        public ICollection<BuildingCitizen> BuildingCitizens { get; set; }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using DevCitySim.Data.Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevCitySim.Data
+namespace DevCitySim.Data.Classes
 {
     internal class Building
     {
@@ -13,8 +14,6 @@ namespace DevCitySim.Data
         public string Name { get; set; }
         public string Kind { get; set; }
         public string Location { get; set; }
-        public int CitizenId { get; set; }
-        public Citizen Citizen { get; set; }
-
+        public ICollection<BuildingCitizen> BuildingCitizens { get; set; }
     }
 }

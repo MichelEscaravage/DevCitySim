@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevCitySim.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240917104720_Added seedData")]
-    partial class AddedseedData
+    [Migration("20241017080517_manytomany")]
+    partial class manytomany
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,7 +22,7 @@ namespace DevCitySim.Migrations
                 .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("DevCitySim.Data.Building", b =>
+            modelBuilder.Entity("DevCitySim.Data.Classes.Building", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,107 +52,107 @@ namespace DevCitySim.Migrations
                         new
                         {
                             Id = 2,
-                            Kind = "Office",
-                            Location = "DevAvenue 5",
-                            Name = "CodeTower"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Kind = "Warehouse",
-                            Location = "IndustryPark 10",
-                            Name = "TechHub"
-                        },
-                        new
-                        {
-                            Id = 4,
                             Kind = "Apartment",
                             Location = "MapleRoad 15",
                             Name = "GreenBlock"
                         },
                         new
                         {
+                            Id = 3,
+                            Kind = "Office",
+                            Location = "DevAvenue 5",
+                            Name = "CodeTower"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Kind = "Office",
+                            Location = "TechStreet 115",
+                            Name = "DevTower"
+                        },
+                        new
+                        {
                             Id = 5,
-                            Kind = "Mall",
-                            Location = "CloudStreet 20",
-                            Name = "Cloud Plaza"
+                            Kind = "Warehouse",
+                            Location = "IndustryPark 10",
+                            Name = "TechHub"
                         },
                         new
                         {
                             Id = 6,
-                            Kind = "Research Center",
-                            Location = "Innovation Drive 25",
-                            Name = "ByteLabs"
-                        },
-                        new
-                        {
-                            Id = 7,
                             Kind = "Data Center",
                             Location = "SiliconValley 30",
                             Name = "DataSquare"
                         },
                         new
                         {
+                            Id = 7,
+                            Kind = "Mall",
+                            Location = "CloudStreet 20",
+                            Name = "Cloud Plaza"
+                        },
+                        new
+                        {
                             Id = 8,
-                            Kind = "Apartment",
-                            Location = "BlueSky 35",
-                            Name = "Skyline Tower"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Kind = "Office",
-                            Location = "TechValley 40",
-                            Name = "Infinity Space"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Kind = "Residential",
-                            Location = "MainStreet 45",
-                            Name = "Binary Base"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Kind = "Research Center",
-                            Location = "QuantumDrive 50",
-                            Name = "Quantum Labs"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Kind = "Entertainment",
-                            Location = "PixelLane 55",
-                            Name = "Pixel Park"
-                        },
-                        new
-                        {
-                            Id = 13,
                             Kind = "Mall",
                             Location = "NeonStreet 60",
                             Name = "Neon Plaza"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 9,
+                            Kind = "Research Center",
+                            Location = "Innovation Drive 25",
+                            Name = "ByteLabs"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Kind = "Research Center",
+                            Location = "QuantumDrive 50",
+                            Name = "Quantum Labs"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Kind = "Corporate Office",
+                            Location = "VertexBoulevard 85",
+                            Name = "Vertex HQ"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Kind = "Apartment",
+                            Location = "BlueSky 35",
+                            Name = "Skyline Tower"
+                        },
+                        new
+                        {
+                            Id = 13,
                             Kind = "Office",
                             Location = "EchoStreet 65",
                             Name = "EchoTower"
                         },
                         new
                         {
+                            Id = 14,
+                            Kind = "Office",
+                            Location = "TechValley 40",
+                            Name = "Infinity Space"
+                        },
+                        new
+                        {
                             Id = 15,
-                            Kind = "Apartment",
-                            Location = "DiamondRoad 70",
-                            Name = "Crystal Heights"
+                            Kind = "Office",
+                            Location = "SunshineRoad 95",
+                            Name = "Solar Center"
                         },
                         new
                         {
                             Id = 16,
-                            Kind = "Hotel",
-                            Location = "StreamlineBlvd 75",
-                            Name = "Streamline Suites"
+                            Kind = "Residential",
+                            Location = "MainStreet 45",
+                            Name = "Binary Base"
                         },
                         new
                         {
@@ -164,9 +164,9 @@ namespace DevCitySim.Migrations
                         new
                         {
                             Id = 18,
-                            Kind = "Corporate Office",
-                            Location = "VertexBoulevard 85",
-                            Name = "Vertex HQ"
+                            Kind = "Entertainment",
+                            Location = "PixelLane 55",
+                            Name = "Pixel Park"
                         },
                         new
                         {
@@ -178,9 +178,378 @@ namespace DevCitySim.Migrations
                         new
                         {
                             Id = 20,
+                            Kind = "Apartment",
+                            Location = "DiamondRoad 70",
+                            Name = "Crystal Heights"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Kind = "Residential",
+                            Location = "CloudHeights 100",
+                            Name = "SkyLoft"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Kind = "Hotel",
+                            Location = "StreamlineBlvd 75",
+                            Name = "Streamline Suites"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Kind = "Shopping Center",
+                            Location = "MetroAvenue 105",
+                            Name = "MetroPoint"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Kind = "Technology Center",
+                            Location = "FusionRoad 120",
+                            Name = "FusionHub"
+                        },
+                        new
+                        {
+                            Id = 25,
                             Kind = "Office",
-                            Location = "SunshineRoad 95",
-                            Name = "Solar Center"
+                            Location = "StartUpLane 130",
+                            Name = "Innovation Square"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Kind = "Government Building",
+                            Location = "CivicSquare 110",
+                            Name = "Civic Plaza"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Kind = "Court",
+                            Location = "LibertyStreet 140",
+                            Name = "Hall of Justice"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Kind = "Research Facility",
+                            Location = "ScienceRoad 150",
+                            Name = "Quantum Space"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Kind = "Office",
+                            Location = "XenoAvenue 160",
+                            Name = "Xeno Tower"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Kind = "Residential",
+                            Location = "MorningRoad 170",
+                            Name = "Sunrise Apartments"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Kind = "Commercial",
+                            Location = "AuroraBoulevard 180",
+                            Name = "Aurora Complex"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Kind = "Mall",
+                            Location = "LunarStreet 190",
+                            Name = "Lunar Mall"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Kind = "Mall",
+                            Location = "StarRoad 200",
+                            Name = "Celestial Plaza"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Kind = "Factory",
+                            Location = "FactoryRoad 210",
+                            Name = "Industrial Park"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Kind = "Manufacturing",
+                            Location = "OmegaStreet 220",
+                            Name = "Omega Plant"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Kind = "Office",
+                            Location = "SkyTechDrive 230",
+                            Name = "SkyTech HQ"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Kind = "Corporate Office",
+                            Location = "CorporateBoulevard 240",
+                            Name = "Vertex Tower"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Kind = "Tech Incubator",
+                            Location = "InnovatorsWay 250",
+                            Name = "Innovation Hub"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Kind = "Office",
+                            Location = "PioneerStreet 260",
+                            Name = "Pioneers Plaza"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Kind = "Corporate Office",
+                            Location = "EnterpriseRoad 270",
+                            Name = "Enterprise Building"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Kind = "Research Center",
+                            Location = "FutureLane 280",
+                            Name = "FutureTech Center"
+                        });
+                });
+
+            modelBuilder.Entity("DevCitySim.Data.Classes.BuildingCitizen", b =>
+                {
+                    b.Property<int>("CitizenId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BuildingId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CitizenId", "BuildingId");
+
+                    b.HasIndex("BuildingId");
+
+                    b.ToTable("buildingCitizens");
+
+                    b.HasData(
+                        new
+                        {
+                            CitizenId = 1,
+                            BuildingId = 1
+                        },
+                        new
+                        {
+                            CitizenId = 1,
+                            BuildingId = 4
+                        },
+                        new
+                        {
+                            CitizenId = 1,
+                            BuildingId = 5
+                        },
+                        new
+                        {
+                            CitizenId = 2,
+                            BuildingId = 2
+                        },
+                        new
+                        {
+                            CitizenId = 2,
+                            BuildingId = 8
+                        },
+                        new
+                        {
+                            CitizenId = 3,
+                            BuildingId = 3
+                        },
+                        new
+                        {
+                            CitizenId = 3,
+                            BuildingId = 11
+                        },
+                        new
+                        {
+                            CitizenId = 4,
+                            BuildingId = 4
+                        },
+                        new
+                        {
+                            CitizenId = 4,
+                            BuildingId = 15
+                        },
+                        new
+                        {
+                            CitizenId = 5,
+                            BuildingId = 1
+                        },
+                        new
+                        {
+                            CitizenId = 5,
+                            BuildingId = 6
+                        },
+                        new
+                        {
+                            CitizenId = 6,
+                            BuildingId = 5
+                        },
+                        new
+                        {
+                            CitizenId = 6,
+                            BuildingId = 16
+                        },
+                        new
+                        {
+                            CitizenId = 7,
+                            BuildingId = 3
+                        },
+                        new
+                        {
+                            CitizenId = 7,
+                            BuildingId = 17
+                        },
+                        new
+                        {
+                            CitizenId = 8,
+                            BuildingId = 8
+                        },
+                        new
+                        {
+                            CitizenId = 8,
+                            BuildingId = 12
+                        },
+                        new
+                        {
+                            CitizenId = 9,
+                            BuildingId = 11
+                        },
+                        new
+                        {
+                            CitizenId = 9,
+                            BuildingId = 19
+                        },
+                        new
+                        {
+                            CitizenId = 10,
+                            BuildingId = 4
+                        },
+                        new
+                        {
+                            CitizenId = 10,
+                            BuildingId = 20
+                        },
+                        new
+                        {
+                            CitizenId = 11,
+                            BuildingId = 13
+                        },
+                        new
+                        {
+                            CitizenId = 11,
+                            BuildingId = 14
+                        },
+                        new
+                        {
+                            CitizenId = 12,
+                            BuildingId = 16
+                        },
+                        new
+                        {
+                            CitizenId = 12,
+                            BuildingId = 18
+                        },
+                        new
+                        {
+                            CitizenId = 13,
+                            BuildingId = 14
+                        },
+                        new
+                        {
+                            CitizenId = 13,
+                            BuildingId = 15
+                        },
+                        new
+                        {
+                            CitizenId = 14,
+                            BuildingId = 15
+                        },
+                        new
+                        {
+                            CitizenId = 14,
+                            BuildingId = 25
+                        },
+                        new
+                        {
+                            CitizenId = 15,
+                            BuildingId = 25
+                        },
+                        new
+                        {
+                            CitizenId = 15,
+                            BuildingId = 30
+                        },
+                        new
+                        {
+                            CitizenId = 16,
+                            BuildingId = 12
+                        },
+                        new
+                        {
+                            CitizenId = 16,
+                            BuildingId = 32
+                        },
+                        new
+                        {
+                            CitizenId = 17,
+                            BuildingId = 17
+                        },
+                        new
+                        {
+                            CitizenId = 17,
+                            BuildingId = 34
+                        },
+                        new
+                        {
+                            CitizenId = 18,
+                            BuildingId = 19
+                        },
+                        new
+                        {
+                            CitizenId = 18,
+                            BuildingId = 38
+                        },
+                        new
+                        {
+                            CitizenId = 19,
+                            BuildingId = 9
+                        },
+                        new
+                        {
+                            CitizenId = 19,
+                            BuildingId = 35
+                        },
+                        new
+                        {
+                            CitizenId = 20,
+                            BuildingId = 20
+                        },
+                        new
+                        {
+                            CitizenId = 20,
+                            BuildingId = 40
                         });
                 });
 
@@ -506,6 +875,35 @@ namespace DevCitySim.Migrations
                             Job = "Lawyer",
                             Name = "Amelia Allen"
                         });
+                });
+
+            modelBuilder.Entity("DevCitySim.Data.Classes.BuildingCitizen", b =>
+                {
+                    b.HasOne("DevCitySim.Data.Classes.Building", "Building")
+                        .WithMany("BuildingCitizens")
+                        .HasForeignKey("BuildingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DevCitySim.Data.Classes.Citizen", "Citizen")
+                        .WithMany("BuildingCitizens")
+                        .HasForeignKey("CitizenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Building");
+
+                    b.Navigation("Citizen");
+                });
+
+            modelBuilder.Entity("DevCitySim.Data.Classes.Building", b =>
+                {
+                    b.Navigation("BuildingCitizens");
+                });
+
+            modelBuilder.Entity("DevCitySim.Data.Classes.Citizen", b =>
+                {
+                    b.Navigation("BuildingCitizens");
                 });
 #pragma warning restore 612, 618
         }

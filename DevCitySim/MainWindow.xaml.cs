@@ -1,8 +1,10 @@
 using DevCitySim.Data;
 using DevCitySim.Data.Classes;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DevCitySim
@@ -12,9 +14,8 @@ namespace DevCitySim
         public MainWindow()
         {
             this.InitializeComponent();
-
             ShowCitizens();
-
+            /*      TEST();*/
             FilterBox.TextChanged += FilterBox_TextChanged;
         }
 
@@ -23,8 +24,10 @@ namespace DevCitySim
             using (var db = new AppDbContext())
             {
                 bewonersListView.ItemsSource = db.Citizens
-                    .OrderBy(citizenName => citizenName.Name)
-                    .ToList();
+                 .Include(citizen => citizen.BuildingCitizens)
+                 .ThenInclude(pivot => pivot.Building)
+                 .OrderBy(citizenName => citizenName.Name)
+                 .ToList();
             }
         }
 
@@ -64,6 +67,8 @@ namespace DevCitySim
                 var filteredCitizens = db.Citizens
                     .Where(citizen => citizen.Name.Contains(filter))
                     .OrderBy(citizen => citizen.Name)
+                    .Include(c => c.BuildingCitizens)
+                    .ThenInclude(pivot => pivot.Building)
                     .ToList();
 
                 bewonersListView.ItemsSource = filteredCitizens;
@@ -72,9 +77,12 @@ namespace DevCitySim
 
         private void bewonersListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var selectedItem = (Citizen)e.ClickedItem;
+            Citizen selectedItem = (Citizen)e.ClickedItem;
 
             FilterBox.Text = selectedItem.Name;
+
+            CitizenBuilding citizenBuilding = new CitizenBuilding(selectedItem, this);
+            citizenBuilding.Activate();
         }
     }
 }
