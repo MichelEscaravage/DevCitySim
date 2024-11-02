@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Window
     x:Class="DevCitySim.CitizenBuilding"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,20 +8,21 @@
     xmlns:localData="using:DevCitySim.Data.Classes"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="citizenName" Grid.Row="0" FontSize="20" FontWeight="Bold" Padding="10" />
+        <TextBlock x:Name="citizenName" Grid.Row="0" FontSize="28" FontWeight="Bold" Padding="10" Foreground="#61DAFB" />
 
-        <ListView x:Name="buildingListView" IsItemClickEnabled="True" ItemClick="buildingListView_ItemClick"  Padding="10" Margin="0,10,0,10" Grid.Row="1" VerticalAlignment="Stretch">
+        <ListView x:Name="buildingListView" Grid.Row="1" Background="Transparent" BorderThickness="0" IsItemClickEnabled="True" 
+                  ItemClick="buildingListView_ItemClick" Padding="10">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="localData:BuildingCitizen">
-                    <StackPanel Background="#e0e0e0" Padding="10" Margin="0,0,0,10" CornerRadius="8">
-                        <TextBlock Text="{x:Bind Building.Name}" TextWrapping="Wrap" Margin="0,5,0,0" Foreground="Black"/>
-                        <TextBlock Text="{x:Bind Building.Kind}" TextWrapping="Wrap" Margin="0,5,0,0" Foreground="Black"/>
+                    <StackPanel Background="#282C34" Padding="15" Margin="5" CornerRadius="8">
+                        <TextBlock Text="{x:Bind Building.Name}" Foreground="White" FontWeight="Bold" FontSize="18"/>
+                        <TextBlock Text="{x:Bind Building.Kind}" Foreground="#61DAFB" FontSize="14" Margin="0,5,0,0"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

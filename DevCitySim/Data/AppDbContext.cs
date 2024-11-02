@@ -30,7 +30,6 @@ namespace DevCitySim.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BuildingCitizen>().HasKey(bc => new { bc.CitizenId, bc.BuildingId });
-
             modelBuilder.Entity<BuildingCitizen>().HasOne(bc => bc.Citizen).WithMany(c => c.BuildingCitizens).HasForeignKey(bc => bc.CitizenId);
             modelBuilder.Entity<BuildingCitizen>().HasOne(bc => bc.Building).WithMany(b => b.BuildingCitizens).HasForeignKey(bc => bc.BuildingId);
 
